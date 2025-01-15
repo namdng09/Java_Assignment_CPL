@@ -1,5 +1,8 @@
 package fa.training.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Inputter {
@@ -34,7 +37,7 @@ public class Inputter {
         if (input.isEmpty()) {
           throw new Exception("Can not leave blank!");
         } else if (!input.matches("[\\w\\s]+")) {
-          throw new Exception("Name of student can not have special word!");
+          throw new Exception("Name of publisher can not have special word!");
         } else {
           // Return valid string
           return this.formatTo(input);
@@ -43,6 +46,45 @@ public class Inputter {
         System.out.println("ERROR: " + e.getMessage());
       }
     }
+  }
+
+  public String getString(String message) {
+    String input;
+    while (true) {
+      System.out.print(message);
+      try {
+        input = scanner.nextLine();
+        if (input.isEmpty()) {
+          throw new Exception("Can not leave blank!");
+        } else if (!input.matches("[\\w\\s]+")) {
+          throw new Exception("The String can not have special word!");
+        } else {
+          // Return valid string
+          return input;
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+  }
+
+  public Date getDate(String message, Date date) {
+    boolean isContinue = true;
+    Date result = new Date();
+
+    while (isContinue) {
+      System.out.print(message);
+      SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+      // set lenient to false to apply strict date parsing
+      dateFormat.setLenient(false);
+      try {
+        result = dateFormat.parse(this.getString(message));
+        isContinue = false;
+      } catch (ParseException e) {
+        System.out.println("Invalid date format dd-MM-yyyy.");
+      }
+    }
+    return result;
   }
 
   public String formatTo(String e) {

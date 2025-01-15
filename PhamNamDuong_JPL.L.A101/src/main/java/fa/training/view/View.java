@@ -10,10 +10,11 @@ public class View {
   public static final int NO_OPTION = 0;
 
   public void displayMenu(OPTIONS[] options) {
-    System.out.println("WELCOME TO STUDENT MANAGEMENT");
+    System.out.println("WELCOME TO LIBRARY MANAGEMENT");
     for (OPTIONS option : options) {
       System.out.println(option.getKey() + ". " + option.getMessage());
     }
+    System.out.println("\n");
   }
 
   public Object inputOption(String message, Object[] options) {

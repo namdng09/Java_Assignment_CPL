@@ -10,8 +10,7 @@ public enum OPTIONS {
   TOP_TEN_LARGEST_VOLUME_MAGAZINES(5, "5. List top ten largest volume magazines"),
   COUNT_PUBLICATION_BY_PUBLICATION_YEAR(6, "6. Count publications by publication's year"),
   SEARCH_BY_ISBN_OR_AUTHOR_OR_PUBLISHER(7, "7. Search publications by isbn or author or publisher"),
-  EXIT(8, "8. Exit the program"),
-  INVALID_OPTION(-1, "Invalid option");
+  EXIT(8, "8. Exit the program");
 
   private String message;
   private int key;
