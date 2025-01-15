@@ -5,12 +5,14 @@ import java.util.List;
 
 import fa.training.common.OPTIONS;
 import fa.training.entities.Publication;
+import fa.training.services.BookService;
 import fa.training.view.View;
 
 public class Controller {
 
   public void setup() {
     View view = new View();
+    BookService bookService = new BookService();
 
     List<Publication> publications = new ArrayList<>();
 
@@ -20,6 +22,8 @@ public class Controller {
       OPTIONS choice = (OPTIONS) view.inputOption("Your choice: ", OPTIONS.values());
       switch (choice) {
         case ADD_NEW_BOOK:
+          
+
           break;
         case ADD_NEW_MAGAZINE:
           break;

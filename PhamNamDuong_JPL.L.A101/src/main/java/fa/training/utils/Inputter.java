@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Inputter {
   private Scanner scanner = new Scanner(System.in);
+  private Validator validator = new Validator();
 
   public int getInteger(String message, int min, int max) {
     int input;
@@ -36,8 +37,28 @@ public class Inputter {
         input = scanner.nextLine();
         if (input.isEmpty()) {
           throw new Exception("Can not leave blank!");
-        } else if (!input.matches("[\\w\\s]+")) {
-          throw new Exception("Name of publisher can not have special word!");
+        } else if (!validator.isValidNameString(input)) {
+          throw new Exception("The name can not have special word!");
+        } else {
+          // Return valid string
+          return this.formatTo(input);
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+  }
+
+  public String getIsbn(String message) {
+    String input;
+    while (true) {
+      System.out.print(message);
+      try {
+        input = scanner.nextLine();
+        if (input.isEmpty()) {
+          throw new Exception("Can not leave blank!");
+        } else if (!validator.isValidNameString(input)) {
+          throw new Exception("Invalid format IBSN!");
         } else {
           // Return valid string
           return this.formatTo(input);
@@ -56,8 +77,6 @@ public class Inputter {
         input = scanner.nextLine();
         if (input.isEmpty()) {
           throw new Exception("Can not leave blank!");
-        } else if (!input.matches("[\\w\\s]+")) {
-          throw new Exception("The String can not have special word!");
         } else {
           // Return valid string
           return input;
@@ -68,7 +87,7 @@ public class Inputter {
     }
   }
 
-  public Date getDate(String message, Date date) {
+  public Date getDate(String message) {
     boolean isContinue = true;
     Date result = new Date();
 

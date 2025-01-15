@@ -1,7 +1,5 @@
 package fa.training.services;
 
-import java.util.Date;
-
 import fa.training.utils.Inputter;
 import fa.training.utils.Validator;
 
@@ -12,7 +10,7 @@ public class PublicationService {
   public PublicationService() {
   }
 
-  public void inputPublicationYear(int number) {
+  public void inputPublicationYear() {
     inputter.getInteger("Input Publication Year (year > 1900): ", 1900, 9999);
   }
 
@@ -20,8 +18,8 @@ public class PublicationService {
     inputter.getNameString("Input name of the publiser: ");
   }
 
-  public void inputPublicationDate(Date date) {
-    inputter.getDate("Enter publication date (dd-MM-yyyy): ", date);
+  public void inputPublicationDate() {
+    inputter.getDate("Enter publication date (dd-MM-yyyy): ");
   }
 
 }
