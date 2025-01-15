@@ -18,19 +18,14 @@ public class BookService {
 
   public Book createNewBook() {
     Book book = new Book.Builder()
-        .setIsbn(this.getIsbn())
+        .setIsbn(inputter.getIsbn("Input the ISBN: "))
         .setAuthors(this.getAuthorName())
-        .setPublicationPlace(this.getPublicationPlace())
+        .setPublicationPlace(inputter.getNameString("Input the publication place: "))
+        .setPublicationYear(inputter.getInteger("Input the publication year (year > 1900): ", 1900, 9999))
+        .setPublisher(inputter.getNameString("Input the name of publisher: "))
+        .setPublicationDate(inputter.getDate("Input the publication date (dd-MM-yyyy): "))
         .build();
     return book;
-  }
-
-  public String getIsbn() {
-    return inputter.getIsbn("Input the ISBN: ");
-  }
-
-  public String getPublicationPlace() {
-    return inputter.getNameString("Input the publication place: ");
   }
 
   public Set<String> getAuthorName() {

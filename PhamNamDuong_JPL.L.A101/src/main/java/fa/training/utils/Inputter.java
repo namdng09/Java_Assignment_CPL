@@ -57,7 +57,7 @@ public class Inputter {
         input = scanner.nextLine();
         if (input.isEmpty()) {
           throw new Exception("Can not leave blank!");
-        } else if (!validator.isValidNameString(input)) {
+        } else if (!validator.isValidIsbn(input)) {
           throw new Exception("Invalid format IBSN!");
         } else {
           // Return valid string
@@ -92,7 +92,6 @@ public class Inputter {
     Date result = new Date();
 
     while (isContinue) {
-      System.out.print(message);
       SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
       // set lenient to false to apply strict date parsing
       dateFormat.setLenient(false);

@@ -22,8 +22,8 @@ public class Controller {
       OPTIONS choice = (OPTIONS) view.inputOption("Your choice: ", OPTIONS.values());
       switch (choice) {
         case ADD_NEW_BOOK:
-          
-
+          bookService.addNewBook(publications);
+          view.showPublications(publications);
           break;
         case ADD_NEW_MAGAZINE:
           break;

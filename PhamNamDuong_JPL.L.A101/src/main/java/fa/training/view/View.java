@@ -1,6 +1,9 @@
 package fa.training.view;
 
+import java.util.List;
+
 import fa.training.common.OPTIONS;
+import fa.training.entities.Publication;
 import fa.training.utils.Inputter;
 
 public class View {
@@ -14,7 +17,6 @@ public class View {
     for (OPTIONS option : options) {
       System.out.println(option.getKey() + ". " + option.getMessage());
     }
-    System.out.println("\n");
   }
 
   public Object inputOption(String message, Object[] options) {
@@ -25,5 +27,11 @@ public class View {
 
   public int inputYesNoOption(String message) {
     return inputter.getInteger(message, NO_OPTION, YES_OPTION);
+  }
+
+  public void showPublications(List<Publication> publications) {
+    for (Publication publication : publications) {
+      System.out.println(publication.toString());
+    }
   }
 }
