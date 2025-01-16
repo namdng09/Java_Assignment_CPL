@@ -20,11 +20,11 @@ public class Book extends Publication {
 
     @Override
     public String toString() {
-        return "Book: " +
-               "\nisbn= " + isbn +
-               "\nauthor= " + author +
-               "\npublicationPlace= " + publicationPlace +
-               "\n" + super.toString();
+        return "Book:" +
+               ", isbn= " + isbn +
+               ", author= " + author +
+               ", publicationPlace= " + publicationPlace +
+               ", " + super.toString();
     }
 
     public String getIsbn() {

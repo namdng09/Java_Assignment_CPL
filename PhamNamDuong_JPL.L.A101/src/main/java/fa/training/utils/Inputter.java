@@ -52,6 +52,26 @@ public class Inputter {
     }
   }
 
+  public String getIsbn(String message) {
+    String input;
+    while (true) {
+      System.out.print(message);
+      try {
+        input = scanner.nextLine();
+        if (input.isEmpty()) {
+          throw new Exception("Can not leave blank!");
+        }
+        if (!validator.isValidIsbn(input)) {
+          throw new Exception("Invalid format IBSN!");
+        }
+        // Return valid string
+        return this.formatTo(input);
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+  }
+
   public String getDistinctIsbn(String message, List<Publication> publications) {
     String input;
     while (true) {
