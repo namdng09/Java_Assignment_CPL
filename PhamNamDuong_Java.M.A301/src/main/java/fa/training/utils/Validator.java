@@ -1,20 +1,16 @@
 package fa.training.utils;
 
+import java.util.regex.Pattern;
+
 public class Validator {
 
   public boolean isValidNameString(String name) {
-    String regex = "[\\w\\s]+";
-    return name.matches(regex);
+    String nameRegex = "[\\w\\s]+";
+    return Pattern.matches(nameRegex, name);
   }
 
-  // public boolean isDistinctISBN(List<Publication> publications, String isbn) {
-  //   boolean isDistinct = false;
-  //   for (Publication publication : publications) {
-  //     if (((Book) publication).getIsbn().equalsIgnoreCase(isbn)) {
-  //       isDistinct = true;
-  //       return isDistinct;
-  //     }
-  //   }
-  //   return isDistinct;
-  // }
+  public boolean isValidEmail(String email) {
+    String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    return Pattern.matches(emailRegex, email);
+  }
 }

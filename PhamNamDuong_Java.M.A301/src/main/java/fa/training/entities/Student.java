@@ -15,7 +15,7 @@ public class Student extends Person {
   }
 
   public double calculateFinalMark() {
-    return 1;
+    return (theory + practice) / 2;
   }
 
   public double getTheory() {

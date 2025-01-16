@@ -49,6 +49,26 @@ public class Inputter {
     }
   }
 
+  public String getEmail(String message) {
+    String input;
+    while (true) {
+      System.out.print(message);
+      try {
+        input = scanner.nextLine();
+        if (input.isEmpty()) {
+          throw new Exception("Can not leave blank!");
+        } else if (!validator.isValidEmail(input)) {
+          throw new Exception("Invalid email format!");
+        } else {
+          // Return valid string
+          return input;
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+  }
+
   public String getString(String message) {
     String input;
     while (true) {
@@ -72,14 +92,14 @@ public class Inputter {
     Date result = new Date();
 
     while (isContinue) {
-      SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+      SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
       // set lenient to false to apply strict date parsing
       dateFormat.setLenient(false);
       try {
         result = dateFormat.parse(this.getString(message));
         isContinue = false;
       } catch (ParseException e) {
-        System.out.println("Invalid date format dd-MM-yyyy.");
+        System.out.println("Invalid date format dd/MM/yyyy.");
       }
     }
     return result;
