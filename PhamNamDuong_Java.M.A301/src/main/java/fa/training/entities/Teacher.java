@@ -37,10 +37,22 @@ public class Teacher extends Person {
   public static class Builder {
     private String name;
     private String email;
+    private String gender;
+    private String phoneNumber;
     private double basicSalary;
     private double subsidy;
 
     public Builder() {
+    }
+
+    public Builder setPhoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
+    }
+
+    public Builder setGender(String gender) {
+      this.gender = gender;
+      return this;
     }
 
     public Builder setName(String name) {
@@ -67,6 +79,8 @@ public class Teacher extends Person {
       Teacher teacher = new Teacher();
       teacher.setName(this.name);
       teacher.setEmail(this.email);
+      teacher.setGender(this.gender);
+      teacher.setPhoneNumber(this.phoneNumber);
       teacher.basicSalary = this.basicSalary;
       teacher.subsidy = this.subsidy;
       return teacher;

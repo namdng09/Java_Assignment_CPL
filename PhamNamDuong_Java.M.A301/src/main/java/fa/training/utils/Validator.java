@@ -13,4 +13,8 @@ public class Validator {
     String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     return Pattern.matches(emailRegex, email);
   }
+  public boolean isValidStudentId(String email) {
+    String idRegex = "^HE[\\d]{3}$";
+    return Pattern.matches(idRegex, email);
+  }
 }

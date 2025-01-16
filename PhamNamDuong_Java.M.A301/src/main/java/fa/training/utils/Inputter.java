@@ -9,6 +9,26 @@ public class Inputter {
   private Scanner scanner = new Scanner(System.in);
   private Validator validator = new Validator();
 
+  public double getDouble(String message, double min, double max) {
+    int input;
+    while (true) {
+      System.out.print(message);
+      try {
+        input = Integer.parseInt(scanner.nextLine());
+        if (input < min || input > max) {
+          throw new Exception(String.format(
+              "Invalid number, number must be in range [%d, %d]",
+              min, max));
+        } else {
+          break;
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+    return input;
+  }
+
   public int getInteger(String message, int min, int max) {
     int input;
     while (true) {
@@ -80,6 +100,24 @@ public class Inputter {
         } else {
           // Return valid string
           return input;
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+      }
+    }
+  }
+
+  public String getValidID(String message) {
+    String input;
+    while (true) {
+      try {
+        System.out.print(message);
+        input = scanner.nextLine().toUpperCase();
+        if (validator.isValidStudentId(input)) {
+          return input;
+        } else {
+          throw new Exception(
+              "Invalid ID, Please enter the ID in the form CAxxx");
         }
       } catch (Exception e) {
         System.out.println("ERROR: " + e.getMessage());

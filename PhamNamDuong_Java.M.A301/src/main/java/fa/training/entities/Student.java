@@ -43,6 +43,8 @@ public class Student extends Person {
   public static class Builder {
     private String name;
     private String email;
+    private String gender;
+    private String phoneNumber;
     private String studentId;
     private double theory;
     private double practice;
@@ -50,8 +52,18 @@ public class Student extends Person {
     public Builder() {
     }
 
+    public Builder setPhoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
+    }
+
     public Builder setName(String name) {
       this.name = name;
+      return this;
+    }
+
+    public Builder setGender(String gender) {
+      this.gender = gender;
       return this;
     }
 
@@ -78,7 +90,9 @@ public class Student extends Person {
     public Student build() {
       Student student = new Student();
       student.setName(this.name);
+      student.setGender(this.gender);
       student.setEmail(this.email);
+      student.setPhoneNumber(this.phoneNumber);
       student.studentId = this.studentId;
       student.theory = this.theory;
       student.practice = this.practice;

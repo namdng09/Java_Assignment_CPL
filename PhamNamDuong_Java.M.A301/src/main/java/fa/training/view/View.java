@@ -1,5 +1,6 @@
 package fa.training.view;
 
+import fa.training.common.MenuOptions;
 import fa.training.common.OPTIONS;
 import fa.training.utils.Inputter;
 
@@ -16,6 +17,13 @@ public class View {
     }
   }
 
+  public void displayMenu(MenuOptions[] options) {
+    System.out.println("WELCOME TO LIBRARY MANAGEMENT");
+    for (MenuOptions option : options) {
+      System.out.println(option.getKey() + ". " + option.getMessage());
+    }
+  }
+
   public Object inputOption(String message, Object[] options) {
     Object option;
     option = options[inputter.getInteger(message, 1, options.length) - 1];
@@ -27,8 +35,8 @@ public class View {
   }
 
   // public void showPublications(List<Publication> publications) {
-  //   for (Publication publication : publications) {
-  //     System.out.println(publication.toString());
-  //   }
+  // for (Publication publication : publications) {
+  // System.out.println(publication.toString());
+  // }
   // }
 }
