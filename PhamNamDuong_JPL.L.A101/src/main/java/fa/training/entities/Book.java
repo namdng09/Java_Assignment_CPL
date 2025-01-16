@@ -21,9 +21,9 @@ public class Book extends Publication {
     @Override
     public String toString() {
         return "Book: " +
-               "\nisbn='" + isbn + '\'' +
-               "\nauthor=" + author +
-               "\npublicationPlace='" + publicationPlace + '\'' +
+               "\nisbn= " + isbn +
+               "\nauthor= " + author +
+               "\npublicationPlace= " + publicationPlace +
                "\n" + super.toString();
     }
 

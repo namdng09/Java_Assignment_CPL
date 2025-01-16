@@ -12,13 +12,13 @@ public class BookService {
   Inputter inputter = new Inputter();
 
   public void addNewBook(List<Publication> publications) {
-    Book book = this.createNewBook();
+    Book book = this.createNewBook(publications);
     publications.add(book);
   }
 
-  public Book createNewBook() {
+  public Book createNewBook(List<Publication> publications) {
     Book book = new Book.Builder()
-        .setIsbn(inputter.getIsbn("Input the ISBN: "))
+        .setIsbn(inputter.getDistinctIsbn("Input the ISBN: ", publications))
         .setAuthors(this.getAuthorName())
         .setPublicationPlace(inputter.getNameString("Input the publication place: "))
         .setPublicationYear(inputter.getInteger("Input the publication year (year > 1900): ", 1900, 9999))

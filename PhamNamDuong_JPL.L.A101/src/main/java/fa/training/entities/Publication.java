@@ -41,8 +41,9 @@ public abstract class Publication {
   public String toString() {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     String formattedPublicationDate = dateFormat.format(publicationDate);
-    return "PublicationYear=" + publicationYear +
-        "\nPublisher='" + publisher +
-        "\nPublicationDate=" + formattedPublicationDate;
+    return "PublicationYear= " + publicationYear +
+        "\nPublisher= " + publisher +
+        "\nPublicationDate= " + formattedPublicationDate +
+        "\n";
   }
 }

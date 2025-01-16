@@ -1,5 +1,10 @@
 package fa.training.utils;
 
+import java.util.List;
+
+import fa.training.entities.Book;
+import fa.training.entities.Publication;
+
 public class Validator {
 
   public boolean isValidIsbn(String isbn) {
@@ -12,4 +17,14 @@ public class Validator {
     return name.matches(regex);
   }
 
+  public boolean isDistinctISBN(List<Publication> publications, String isbn) {
+    boolean isDistinct = false;
+    for (Publication publication : publications) {
+      if (((Book) publication).getIsbn().equalsIgnoreCase(isbn)) {
+        isDistinct = true;
+        return isDistinct;
+      }
+    }
+    return isDistinct;
+  }
 }

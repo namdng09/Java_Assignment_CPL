@@ -3,7 +3,10 @@ package fa.training.utils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
+
+import fa.training.entities.Publication;
 
 public class Inputter {
   private Scanner scanner = new Scanner(System.in);
@@ -49,7 +52,7 @@ public class Inputter {
     }
   }
 
-  public String getIsbn(String message) {
+  public String getDistinctIsbn(String message, List<Publication> publications) {
     String input;
     while (true) {
       System.out.print(message);
@@ -57,12 +60,15 @@ public class Inputter {
         input = scanner.nextLine();
         if (input.isEmpty()) {
           throw new Exception("Can not leave blank!");
-        } else if (!validator.isValidIsbn(input)) {
-          throw new Exception("Invalid format IBSN!");
-        } else {
-          // Return valid string
-          return this.formatTo(input);
         }
+        if (!validator.isValidIsbn(input)) {
+          throw new Exception("Invalid format IBSN!");
+        }
+        if (validator.isDistinctISBN(publications, input)) {
+          throw new Exception("ISBN already exists.");
+        }
+        // Return valid string
+        return this.formatTo(input);
       } catch (Exception e) {
         System.out.println("ERROR: " + e.getMessage());
       }
