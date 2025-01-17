@@ -25,12 +25,12 @@ public class Controller {
         case ADD_PERSON:
           personService.addPerson(persons);
           break;
-        case UPDATE_STUDENT:
-          break;
-        case DISPLAY_TEACHER:
-          break;
-        case REPORT:
-          break;
+        // case UPDATE_STUDENT:
+        //   break;
+        // case DISPLAY_TEACHER:
+        //   break;
+        // case REPORT:
+        //   break;
         default:
           System.exit(0);
       }
