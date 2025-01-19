@@ -27,8 +27,8 @@ public class Teacher extends Person {
 
   @Override
   public String toString() {
-    return "Teacher: " +
-        ", BasicSalary= " + basicSalary +
+    return "[Teacher]:" +
+        " BasicSalary= " + basicSalary +
         ", Subsidy= " + subsidy +
         ", " + super.toString();
   }

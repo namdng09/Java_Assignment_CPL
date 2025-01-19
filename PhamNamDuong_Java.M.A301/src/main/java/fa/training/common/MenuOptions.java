@@ -4,7 +4,7 @@ public enum MenuOptions {
 
   ADD_STUDENT(1, "Add new Student"),
   ADD_TEACHER(2, "Add new Teacher"),
-  EXIT(3, "Exit the program");
+  EXIT(3, "Exit");
 
   private String message;
   private int key;

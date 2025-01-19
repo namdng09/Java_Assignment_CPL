@@ -1,7 +1,10 @@
 package fa.training.view;
 
+import java.util.List;
+
 import fa.training.common.MenuOptions;
 import fa.training.common.OPTIONS;
+import fa.training.entities.Person;
 import fa.training.utils.Inputter;
 
 public class View {
@@ -11,14 +14,14 @@ public class View {
   public static final int NO_OPTION = 0;
 
   public void displayMenu(OPTIONS[] options) {
-    System.out.println("WELCOME TO LIBRARY MANAGEMENT");
+    System.out.println("\nWELCOME TO LIBRARY MANAGEMENT");
     for (OPTIONS option : options) {
       System.out.println(option.getKey() + ". " + option.getMessage());
     }
   }
 
   public void displayMenu(MenuOptions[] options) {
-    System.out.println("WELCOME TO LIBRARY MANAGEMENT");
+    System.out.println("\nStudent or Teacher:");
     for (MenuOptions option : options) {
       System.out.println(option.getKey() + ". " + option.getMessage());
     }
@@ -34,9 +37,9 @@ public class View {
     return inputter.getInteger(message, NO_OPTION, YES_OPTION);
   }
 
-  // public void showPublications(List<Publication> publications) {
-  // for (Publication publication : publications) {
-  // System.out.println(publication.toString());
-  // }
-  // }
+    public void showPersons(List<Person> persons) {
+        for (Person person : persons) {
+            System.out.println(person.toString());
+        }
+    }
 }

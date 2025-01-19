@@ -5,7 +5,7 @@ public enum OPTIONS {
   ADD_PERSON(1, "Add persons"),
   UPDATE_STUDENT(2, "Update student"),
   DISPLAY_TEACHER(3, "Display teacher"),
-  REPORT(4, "Displays information about teachers"),
+  REPORT(4, "Report"),
   EXIT(5, "Exit the program");
 
   private String message;

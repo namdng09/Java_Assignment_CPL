@@ -32,8 +32,8 @@ public class Student extends Person {
 
   @Override
   public String toString() {
-    return "Student: " +
-        ", StudentId= " + studentId +
+    return "[Student]:" +
+        " StudentId= " + studentId +
         ", Theory= " + theory +
         ", Practice= " + practice +
         ", " + super.toString();

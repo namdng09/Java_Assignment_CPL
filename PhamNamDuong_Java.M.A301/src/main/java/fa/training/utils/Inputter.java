@@ -9,24 +9,40 @@ public class Inputter {
   private Scanner scanner = new Scanner(System.in);
   private Validator validator = new Validator();
 
+  public boolean askToContinue() {
+    String input;
+    while (true) {
+      System.out.print("Do you want to continue? (yes/no): ");
+      input = scanner.nextLine().trim().toLowerCase();
+
+      if (input.equals("yes")) {
+        return true;
+      } else if (input.equals("no")) {
+        return false;
+      } else {
+        System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+      }
+    }
+  }
+
   public double getDouble(String message, double min, double max) {
-    int input;
+    double input;
     while (true) {
       System.out.print(message);
       try {
-        input = Integer.parseInt(scanner.nextLine());
+        input = Double.parseDouble(scanner.nextLine());
         if (input < min || input > max) {
-          throw new Exception(String.format(
-              "Invalid number, number must be in range [%d, %d]",
+          throw new IllegalArgumentException(String.format(
+              "Invalid number, number must be in range [%.2f, %.2f]",
               min, max));
-        } else {
-          break;
         }
-      } catch (Exception e) {
+        return input; // Return the valid input
+      } catch (NumberFormatException e) {
+        System.out.println("ERROR: Please enter a valid number.");
+      } catch (IllegalArgumentException e) {
         System.out.println("ERROR: " + e.getMessage());
       }
     }
-    return input;
   }
 
   public int getInteger(String message, int min, int max) {
@@ -117,7 +133,7 @@ public class Inputter {
           return input;
         } else {
           throw new Exception(
-              "Invalid ID, Please enter the ID in the form CAxxx");
+              "Invalid ID, Please enter the ID in the form HExxx");
         }
       } catch (Exception e) {
         System.out.println("ERROR: " + e.getMessage());
